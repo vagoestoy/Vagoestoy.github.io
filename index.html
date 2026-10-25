@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vagoestoy - Proyectos vagos</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#06080f;color:#5a76b5;font-family:"Courier New",Courier,monospace;padding:12px;display:flex;flex-direction:column;gap:20px}
+.box{background:#0a1022;border:1px solid #0d2c9c;box-shadow:0 0 18px rgba(13,44,156,.25), inset 0 0 20px rgba(13,44,156,.08);padding:18px 18px 22px}
+.header{display:flex;align-items:center;gap:10px;margin-bottom:18px;margin-top:4px}
+.dot{width:12px;height:12px;background:#00e25b;transform:rotate(45deg);box-shadow:0 0 8px #00e25b}
+.title{color:#00e25b;font-size:15px;letter-spacing:1px}
+.text{font-size:14px;line-height:1.85;letter-spacing:.3px;color:#6b85c2}
+.btn{margin-top:22px;width:100%;background:transparent;border:1px solid #1538c0;color:#4a64a5;padding:13px;font-family:inherit;font-size:13px;letter-spacing:2px;cursor:pointer}
+.box-title-inner{border:1px solid #00e25b;border-radius:8px;box-shadow:0 0 15px rgba(0,226,91,.35);padding:28px 16px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.big-t{color:#00e25b;font-size:26px;font-weight:900;letter-spacing:1px}
+.sub-t{color:#00e25b;font-size:16px;opacity:.8}
+.tag{display:inline-block;border:1px solid #1538c0;padding:3px 8px;font-size:10px;margin-right:6px;margin-top:10px;color:#3d5db5}
+.top-label{font-size:30px;font-weight:900;color:#fff;padding:8px 2px}
+.top-label span{background:#fff;color:#000;padding:2px 8px;border-radius:4px;margin-left:4px}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.modal-bg.show{display:flex}
+.modal{background:#0a1022;border:1px solid #0d2c9c;box-shadow:0 0 25px rgba(21,56,192,.4);padding:20px;width:100%;max-width:360px}
+.modal a{display:block;text-decoration:none;border:1px solid #1538c0;padding:13px;margin-top:12px;text-align:center;font-size:13px;letter-spacing:1px}
+.a-green{color:#00e25b;box-shadow:0 0 10px rgba(0,226,91,.15)}
+.a-blue{color:#5d7cc0}
+.a-disabled{color:#3a4a7a;border-style:dashed;opacity:.7}
+@media(min-width:700px){body{max-width:560px;margin:0 auto;padding:24px}}
+</style>
+</head>
+<body>
+
+<div class="top-label">Proyectos <span>vagos</span></div>
+
+<div class="box">
+  <div class="header"><div class="dot"></div><div class="title">VAGOESTOY</div></div>
+  <div class="text">Hola soy vagoestoy. Se bienvenido<br>a mi sitio personal me dedico a<br>hacer cosas curiosas no tan<br>formales pero diversión no falta</div>
+  <button class="btn" onclick="showM('m1')">GENERAR DATOS DE CONTACTO</button>
+</div>
+
+<div class="box">
+  <div class="header"><div class="dot"></div><div class="title">CONTACTAME</div></div>
+  <div class="text">Te dejo mis redes sociales y correo,<br>talvez no responda por x razon<br>pero te ayudo en lo que pueda</div>
+  <button class="btn" onclick="showM('m2')">CONTACTO</button>
+</div>
+
+<div class="box"><div class="box-title-inner"><div class="big-t">Mis proyectos</div><div class="sub-t">Sencillos y entretenidos</div></div></div>
+
+<div class="box">
+  <div class="header"><div class="dot"></div><div class="title">PHONK HUB</div></div>
+  <div class="text">Un reproductor mp3 con ese estilo.<br>Guarda música en el navegador,<br>likes infinitos, barra arrastrable<br>y diseño mobile privado.</div>
+  <div><span class="tag">HTML</span><span class="tag">MP3</span><span class="tag">PRIVADO</span></div>
+  <button class="btn" onclick="showM('mphonk')">WEB Y DESCARGA APK</button>
+</div>
+
+<div class="box">
+  <div class="header"><div class="dot"></div><div class="title">CIFRA2</div></div>
+  <div class="text">Cifrador y des-cifrador con base<br>de key y código. Encripta texto<br>con tu propia clave, sin servidores.</div>
+  <div><span class="tag">ENCRIPTA</span><span class="tag">KEY</span><span class="tag">JS</span></div>
+  <button class="btn" onclick="showM('mcifra')">WEB Y DESCARGA APK</button>
+</div>
+
+<!-- MODALES -->
+<div class="modal-bg" id="m1" onclick="hideM('m1')"><div class="modal" onclick="event.stopPropagation()"><div class="header"><div class="dot"></div><div class="title">INFO</div></div><div class="text">vagoestoy // 2026<br>si esta pagina deja de funcionar checa mis redes.</div><button class="btn" onclick="hideM('m1')">CERRAR</button></div></div>
+
+<div class="modal-bg" id="m2" onclick="hideM('m2')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="header"><div class="dot"></div><div class="title">REDES</div></div>
+    <a class="a-green" href="https://www.instagram.com/vagoestoy" target="_blank">INSTAGRAM</a>
+    <a class="a-green" href="https://www.tiktok.com/@vagoestoy?_r=1&_t=ZS-9Am95JHDDS" target="_blank">TIKTOK</a>
+    <button class="btn" style="margin-top:22px" onclick="hideM('m2')">CERRAR</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="mphonk" onclick="hideM('mphonk')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="header"><div class="dot"></div><div class="title">PHONK HUB</div></div>
+    <a class="a-blue" href="#">PRONTO - WEB</a>
+    <a class="a-green" href="https://www.mediafire.com/file/3e7lwfxmwlid5he/PhonkHub.apk/file" target="_blank">DESCARGA APK - MEDIAFIRE</a>
+    <button class="btn" onclick="hideM('mphonk')">CERRAR</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="mcifra" onclick="hideM('mcifra')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="header"><div class="dot"></div><div class="title">CIFRA2</div></div>
+    <a class="a-green" href="https://cifra2z.netlify.app" target="_blank">ABRIR WEB</a>
+    <a class="a-green" href="https://www.mediafire.com/file/jw354yjieq2tduc/cifra2.apk/file" target="_blank">DESCARGA APK - MEDIAFIRE</a>
+    <button class="btn" onclick="hideM('mcifra')">CERRAR</button>
+  </div>
+</div>
+
+<script>
+function showM(id){document.getElementById(id).classList.add('show')}
+function hideM(id){document.getElementById(id).classList.remove('show')}
+</script>
+</body>
+</html>
